@@ -1,15 +1,13 @@
 package com.stady.cars.configuration;
 
 
-import com.stady.cars.data.Car;
+import com.stady.cars.domain.model.Car;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.context.annotation.PropertySource;
 
 import java.util.*;
 
 @ConfigurationProperties(prefix = "app")
-public class CarConfiguration {
+public class CarApplicationConfiguration {
     private Map<String, String> codes;
 
     public void setCars(Map<String, Car> cars) {

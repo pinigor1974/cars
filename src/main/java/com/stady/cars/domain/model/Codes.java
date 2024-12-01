@@ -1,4 +1,4 @@
-package com.stady.cars.data;
+package com.stady.cars.domain.model;
 
 public enum Codes {
     engineOn,

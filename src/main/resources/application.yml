@@ -1,12 +1,12 @@
 app:
     codes:
-        engineOn: 0x110
+        engineOn: 0x110 #ToDo что у каждой машины свои коды
         engineOff: 0x20
         lockDoor: 0x2110
         unlockDoor: 0x1410
         error: 0x0000
     cars:
-        linkoln :
+        LINKOLN :
             name : linkoln
             send-type: http
             send-types:
@@ -17,7 +17,7 @@ app:
                 - lockDoor
                 - engineOff
                 - engineOn
-        lada :
+        LADA :
             name : lada
             send-type: error
             send-types:

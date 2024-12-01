@@ -1,7 +1,7 @@
 package com.stady.cars.service;
 
-import com.stady.cars.data.Codes;
-import com.stady.cars.data.SendType;
+import com.stady.cars.domain.model.Codes;
+import com.stady.cars.domain.model.SendType;
 
 public interface SendCodeService {
     Codes send(Codes code);

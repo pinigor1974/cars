@@ -1,6 +1,5 @@
 package com.stady.cars.configuration;
 
-import com.stady.cars.configuration.CarConfiguration;
 import com.stady.cars.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.List;
 @ConfigurationPropertiesScan
 @ConfigurationProperties(prefix = "app")
-@EnableConfigurationProperties({CarConfiguration.class})
+@EnableConfigurationProperties({CarApplicationConfiguration.class})
 
 public class MainConfiguration {
     @Bean
