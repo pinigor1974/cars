@@ -74,7 +74,7 @@ public class TestCarService {
                 if(tree.isEmpty()) {
                     return acc;
                 }else{
-                    return Math.max(findMaxDepth(tree.left(), acc + 1), findMaxDepth(tree.left(), acc + 2));
+                    return Math.max(findMaxDepth(tree.left(), acc + 1), findMaxDepth(tree.right(), acc + 1));
                 }
 
             }
@@ -108,8 +108,16 @@ public class TestCarService {
         };
 
 
-        var tree = new Tree(1, new Nill(), new Tree(2, new Nill(), new Nill()));
-        assertEquals (Tree.findMaxDepth(tree, 0),2);
+        var tree = new Tree(1,
+                new Tree(3, new Nill(),
+                        new Tree(5,
+                                new Tree(6, new Nill(),
+                                        new Tree(7, new Nill(),
+                                                new Tree(8, new Nill(), new Nill()))), new Nill())
+                ),
+                new Tree(2, new Nill(), new Nill())
+        );
+        assertEquals (Tree.findMaxDepth(tree, 0),6);
 
     }
 
