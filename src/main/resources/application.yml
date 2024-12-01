@@ -1,0 +1,27 @@
+app:
+    codes:
+        engineOn: 0x110
+        engineOff: 0x20
+        lockDoor: 0x2110
+        unlockDoor: 0x1410
+        error: 0x0000
+    cars:
+        linkoln :
+            name : linkoln
+            send-type: http
+            send-types:
+                - sms
+                - http
+            codes:
+                - unlockDoor
+                - lockDoor
+                - engineOff
+                - engineOn
+        lada :
+            name : lada
+            send-type: error
+            send-types:
+                - error
+            codes :
+                - error
+                - engineOff
