@@ -18,10 +18,9 @@ public class SendByService  {
         Comparator<SendCodeService> comp = new Comparator<SendCodeService>() {
             @Override
             public int compare(SendCodeService s1, SendCodeService s2) {
-
                 Optional<SendType> sendType1 = Arrays.stream(SendType.values()).filter(sendType-> s1.supports(sendType)).findAny();
                 Optional<SendType> sendType2 = Arrays.stream(SendType.values()).filter(sendType-> s2.supports(sendType)).findAny();
-                return sendType1.flatMap( st1 -> sendType2.map(st2-> st1.compareTo(st2))).get();
+                return sendType1.flatMap( st1 -> sendType2.map(st2-> st1.getValue().compareTo(st2.getValue()))).get();
             }
         };
         this.sendErrorService = sendErrorService;

@@ -28,8 +28,6 @@ public class TestCarService {
 
     @Test
     public void testSendCarCode() {
-       var sendCode = sendByService.send(CommandTypeEnum.ENGINE_OFF, carApplicationConfiguration.getCars().get(Cars.LINKOLN));
-        System.out.println(sendByService.send(CommandTypeEnum.ENGINE_OFF, carApplicationConfiguration.getCars().get(Cars.LINKOLN)));
        assertEquals(sendByService.send(CommandTypeEnum.ENGINE_OFF, carApplicationConfiguration.getCars().get(Cars.LINKOLN)), CommandTypeEnum.ENGINE_OFF);
        assertEquals(sendByService.send(CommandTypeEnum.ENGINE_OFF, carApplicationConfiguration.getCars().get(Cars.LADA)), CommandTypeEnum.ERROR);
 

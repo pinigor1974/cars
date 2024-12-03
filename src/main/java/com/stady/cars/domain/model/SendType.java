@@ -3,17 +3,16 @@ package com.stady.cars.domain.model;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SendType {
-    HTTP("1"),
-    ERROR("3"),
-    SMS("2"); // ToDo Всегда uppercase
-    private final String priority;
+    HTTP(1),
+    ERROR(3),
+    SMS(2); // ToDo Всегда uppercase
+    private final Integer priority;
 
-    SendType(String priority) {
+    SendType(Integer priority) {
 
         this.priority = priority;
     }
-    @JsonValue
-    public String getValue() {
+    public Integer getValue() {
         return this.priority;
     }
 }
