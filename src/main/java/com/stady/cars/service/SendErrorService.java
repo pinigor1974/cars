@@ -1,11 +1,11 @@
 package com.stady.cars.service;
 
-import com.stady.cars.domain.model.Codes;
+import com.stady.cars.domain.model.CommandTypeEnum;
 import com.stady.cars.domain.model.SendType;
 
 public class SendErrorService implements SendCodeService{
     @Override
-    public Codes send(Codes code) {
+    public CommandTypeEnum send(CommandTypeEnum code) {
         throw new RuntimeException();
     }
 

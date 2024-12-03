@@ -1,10 +1,10 @@
 package com.stady.cars.service;
 
-import com.stady.cars.domain.model.Codes;
+import com.stady.cars.domain.model.CommandTypeEnum;
 import com.stady.cars.domain.model.SendType;
 
 public interface SendCodeService {
-    Codes send(Codes code);
+    CommandTypeEnum send(CommandTypeEnum code);
     Boolean supports(SendType sendType);
 
 }

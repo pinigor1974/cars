@@ -2,6 +2,8 @@ package com.stady.cars.configuration;
 
 
 import com.stady.cars.domain.model.Car;
+import com.stady.cars.domain.model.Cars;
+import com.stady.cars.domain.model.Services;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.*;
@@ -10,22 +12,22 @@ import java.util.*;
 public class CarApplicationConfiguration {
     private Map<String, String> codes;
 
-    public void setCars(Map<String, Car> cars) {
+    public void setCars(Map<Cars, Car> cars) {
         this.cars = cars;
     }
 
-    private Map<String, Car> cars;
-    private Map<String, String> deliveryTypes;
+    private Map<Cars, Car> cars;
+    private Map<Services, String> services;
 
-    public Map<String, Car> getCars(){ return cars;}
+    public Map<Cars, Car> getCars(){ return cars;}
     public Map<String, String> getCodes(){ return codes;}
-    public Map<String, String> getDeliveryTypes(){ return deliveryTypes;}
+    public Map<Services, String> getServices(){ return services;}
 
     public void setCodes(Map<String, String> codes) {
         this.codes = codes;
     }
 
-    public void setDeliveryTypes(Map<String, String> deliveryTypes) {
-        this.deliveryTypes = deliveryTypes;
+    public void setServices(Map<Services, String> services) {
+        this.services = services;
     }
 }

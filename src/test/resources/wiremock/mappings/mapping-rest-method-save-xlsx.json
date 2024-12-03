@@ -1,0 +1,21 @@
+{
+  "id": "176d8482-8f1f-39c7-a7dd-000000000999",
+  "request": {
+    "url": "/rostelecom",
+    "method": "POST",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "\"ENGINE_OFF\"",
+    "headers": {
+      "Content-Type": "application/json",
+      "Connection": "keep-alive"
+    }
+  },
+  "uuid": "176d8482-8f1f-39c7-a7dd-be3eee33d37e"
+}
