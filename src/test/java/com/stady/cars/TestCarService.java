@@ -1,17 +1,15 @@
 package com.stady.cars;
 
-import com.stady.cars.configuration.CarApplicationConfiguration;
+import com.stady.cars.configuration.CarApplicationProperties;
 import com.stady.cars.domain.model.Cars;
 import com.stady.cars.domain.model.CommandTypeEnum;
-import com.stady.cars.service.RostelecomProvider;
-import com.stady.cars.service.SendByService;
+import com.stady.cars.adapter.out.http.provider.RostelecomProvider;
+import com.stady.cars.application.service.SendService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-
-import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration(initializers = {ContextInitializer.class})
 public class TestCarService {
     @Autowired
-    private CarApplicationConfiguration carApplicationConfiguration;
+    private CarApplicationProperties carApplicationConfiguration;
     @Autowired
-    private SendByService sendByService;
+    private SendService sendByService;
     @Autowired
     private RostelecomProvider rostelekomProvider;
 
@@ -35,9 +33,5 @@ public class TestCarService {
             sendByService.send(CommandTypeEnum.ENGINE_ON, carApplicationConfiguration.getCars().get(Cars.LADA));
         }, "NumberFormatException error was expected");
     }
-
-
-
-
 
 }

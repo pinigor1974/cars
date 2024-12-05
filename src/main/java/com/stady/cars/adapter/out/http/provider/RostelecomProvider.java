@@ -1,4 +1,4 @@
-package com.stady.cars.service;
+package com.stady.cars.adapter.out.http.provider;
 
 import com.stady.cars.domain.model.CommandTypeEnum;
 import org.springframework.http.*;
@@ -13,20 +13,21 @@ import java.util.List;
 
 public class RostelecomProvider {
     private RestTemplate restTemplate;
-    public RostelecomProvider(RestTemplate restTemplate){
+
+    public RostelecomProvider(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     public CommandTypeEnum send(String uri, CommandTypeEnum code) throws URISyntaxException {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        var req  =RequestEntity.post(uri).headers(headers).body(code);
+        var req = RequestEntity.post(uri).headers(headers).body(code);
         List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
-        ResponseEntity<CommandTypeEnum> response =  restTemplate.exchange(req, CommandTypeEnum.class);
+        ResponseEntity<CommandTypeEnum> response = restTemplate.exchange(req, CommandTypeEnum.class);
         return response.getBody();
     }
 

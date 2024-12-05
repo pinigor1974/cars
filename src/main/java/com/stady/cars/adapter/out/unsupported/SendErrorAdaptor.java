@@ -1,17 +1,17 @@
-package com.stady.cars.service;
+package com.stady.cars.adapter.out.unsupported;
 
+import com.stady.cars.application.port.out.SendCodePort;
 import com.stady.cars.domain.model.CommandTypeEnum;
 import com.stady.cars.domain.model.SendType;
 
-public class SendCodeSmsService implements SendCodeService{
-
+public class SendErrorAdaptor implements SendCodePort {
     @Override
     public CommandTypeEnum send(CommandTypeEnum code) {
-        return code;
+        throw new RuntimeException();
     }
 
     @Override
     public Boolean supports(SendType sendType) {
-        return sendType == SendType.SMS;
+        return sendType == SendType.ERROR;
     }
 }

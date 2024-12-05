@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.*;
 
 @ConfigurationProperties(prefix = "app")
-public class CarApplicationConfiguration {
+public class CarApplicationProperties {
     private Map<String, String> codes;
 
     public void setCars(Map<Cars, Car> cars) {
@@ -20,6 +20,12 @@ public class CarApplicationConfiguration {
     private Map<Services, String> services;
 
     public Map<Cars, Car> getCars(){ return cars;}
+
+    public Optional<Car> findCarByNameAndNumber(String name, String number){
+        return cars.values().stream()
+                .filter(it -> it.number().equals(number) && it.name().equals(name))
+                .findFirst();
+    }
     public Map<String, String> getCodes(){ return codes;}
     public Map<Services, String> getServices(){ return services;}
 

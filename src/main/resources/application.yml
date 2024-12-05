@@ -1,9 +1,14 @@
+spring:
+    application:
+        name: cars
+
 app:
     services:
-        ROSTELECOM: http://localhost:8082/rostelecom
+        ROSTELECOM: http://localhost:8082/rostelecom #я бы вынес это тут в отдельнуб ветку, не app, а api и не services, а providers, при том, я бы определил полноценную модель с полями ProviderEnum, url
     cars:
-        LINKOLN :
+        LINKOLN : # зачем нам enum тип ?
             name : linkoln
+            number: "У777УУ777"
             prioritized-send-type: HTTP
             send-types:
                 - SMS
@@ -15,6 +20,7 @@ app:
                 - engineOn
         LADA :
             name : lada
+            number: "Е001КХ77"
             send-types:
                 - ERROR
             codes :

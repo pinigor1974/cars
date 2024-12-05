@@ -1,15 +1,17 @@
-package com.stady.cars.service;
+package com.stady.cars.adapter.out.http;
 
-import com.stady.cars.configuration.CarApplicationConfiguration;
+import com.stady.cars.application.port.out.SendCodePort;
+import com.stady.cars.adapter.out.http.provider.RostelecomProvider;
+import com.stady.cars.configuration.CarApplicationProperties;
 import com.stady.cars.domain.model.CommandTypeEnum;
 import com.stady.cars.domain.model.SendType;
 import com.stady.cars.domain.model.Services;
 
-public class SendCodeHttpService implements SendCodeService{
+public class SendCodeHttpAdapter implements SendCodePort {
 
-    private RostelecomProvider rostelekomProvider;
-    private CarApplicationConfiguration carApplicationConfiguration;
-    public SendCodeHttpService(RostelecomProvider rostelecomProvider, CarApplicationConfiguration carApplicationConfiguration){
+    private RostelecomProvider rostelekomProvider; // Я бы придумал какой-то resolver провайдера
+    private CarApplicationProperties carApplicationConfiguration;
+    public SendCodeHttpAdapter(RostelecomProvider rostelecomProvider, CarApplicationProperties carApplicationConfiguration){
         this.rostelekomProvider = rostelecomProvider;
         this.carApplicationConfiguration = carApplicationConfiguration;
     }
