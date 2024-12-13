@@ -33,7 +33,7 @@ public class SendService {
     }
 
     public SendCodeResponse send(CommandTypeEnum code, Car car) {
-        if (!car.codes().contains(code)) {
+        if (!car.getCodes().contains(code)) {
             throw new NumberFormatException("error codes");
         }
         var request = new SendCodeRequest(code);
@@ -42,7 +42,7 @@ public class SendService {
             return service.send(request);
         } catch (Exception e) {
             var services = sendCodePortList.stream().filter(sendService ->
-                    car.sendTypes().stream().anyMatch(sendService::supports)
+                    car.getSendTypes().stream().anyMatch(sendService::supports)
             ).toList();
             for (SendCodePort srv : services) {
                 try {
@@ -56,7 +56,7 @@ public class SendService {
 
     private SendCodePort getPriorityService(Car car) {
         return sendCodePortList.stream()
-                .filter(service -> service.supports(car.prioritizedSendType()))
+                .filter(service -> service.supports(car.getPrioritizedSendType()))
                 .findFirst()
                 .orElse(sendErrorService);
 

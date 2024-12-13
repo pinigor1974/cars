@@ -30,26 +30,6 @@ public final class Car {
         engineStatus = EngineStatus.ON;
         return new EngineSwitchedOnCarEvent(this.number);
     }
-
-    public String name() {
-        return name;
-    }
-
-    public String number() {
-        return number;
-    }
-
-    public SendType prioritizedSendType() {
-        return prioritizedSendType;
-    }
-
-    public List<SendType> sendTypes() {
-        return sendTypes;
-    }
-
-    public List<CommandTypeEnum> codes() {
-        return codes;
-    }
 }
 
 // ToDO прикрутить кастомный валидатор для number, чтобы проверять валидность с помощью регулярки
