@@ -1,0 +1,10 @@
+variables:
+  HELM_TIMEOUT: "15m"
+  HELM_EXTRA_ARGS: "--debug"
+  STAGE_AUTO_DEPLOY_MODE: "true"
+  GRADLE_VERSION: "gradle:8.11.1-jdk-21-and-23"
+
+include:
+  - project: 'open/gitlab'
+    file: '.gitlab-ci-service.yml'
+    ref: 'master'
